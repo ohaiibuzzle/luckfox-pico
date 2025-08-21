@@ -51,9 +51,6 @@ overlay() {
   rsync -a "$OVERLAY_WORKSPACE/" "$ROOTFS_WORKSPACE_MNT/"
   rm -rf "$OVERLAY_WORKSPACE"
 
-  echo "Include /etc/ssh/sshd_config.d/*.conf" >> \
-    "$ROOTFS_WORKSPACE_MNT/etc/ssh/sshd_config"
-
   ln -s "/etc/init.d/00_link_mount" \
     "$ROOTFS_WORKSPACE_MNT/etc/runlevels/default/00_link_mount"
 
