@@ -14,11 +14,11 @@ while getopts ":f:d:" opt; do
   esac
 done
 
-DEVICE_ID="6"
+DEVICE_ID="2"
 case $DEVICE_NAME in
-  pico-mini-b) DEVICE_ID="6" ;;
-  pico-plus) DEVICE_ID="7" ;;
-  pico-pro-max) DEVICE_ID="8" ;;
+  pico-mini-b) DEVICE_ID="1" ;;
+  pico-plus) DEVICE_ID="2" ;;
+  pico-pro-max) DEVICE_ID="4" ;;
   *)
     echo "Invalid device: ${DEVICE_NAME}."
     exit 1
@@ -36,7 +36,7 @@ source env_install_toolchain.sh
 popd || exit
 
 rm -rf .BoardConfig.mk
-echo "$DEVICE_ID" | ./build.sh lunch
+echo -e "$DEVICE_ID\n1\n0" | ./build.sh lunch
 echo "export RK_CUSTOM_ROOTFS=../sysdrv/custom_rootfs/$ROOTFS_NAME" >> .BoardConfig.mk
 echo "export RK_BOOTARGS_CMA_SIZE=\"1M\"" >> .BoardConfig.mk
 
