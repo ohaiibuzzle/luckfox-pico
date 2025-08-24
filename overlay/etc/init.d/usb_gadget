@@ -3,6 +3,8 @@
 start() {
     ebegin "Starting USB RNDIS Driver"
     /usr/bin/usb_gadget start || true
+    /sbin/ifdown usb0 # for some reason this is needed, else the interface is up but have no IP???
+    /sbin/ifup usb0
     /sbin/start-stop-daemon -S -b -m --pidfile /run/unudhcpd.pid -- /usr/bin/unudhcpd -i usb0 -s 172.16.42.1 -c 172.16.42.2
     eend
 }
@@ -10,6 +12,7 @@ start() {
 stop() {
     ebegin "Stopping USB RNDIS Driver"
     /sbin/start-stop-daemon -K --pidfile /run/unudhcpd.pid
+    /sbin/ifdown usb0
     /usr/bin/usb_gadget stop || true
     eend
 }
