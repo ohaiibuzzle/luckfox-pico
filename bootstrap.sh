@@ -18,7 +18,7 @@ echo -e "luckfox\nluckfox" | passwd
 apk del -r shadow
 
 # Install SSH
-apk add dropbear mtd-utils-ubi bottom fastfetch unudhcpd --no-cache
+apk add dropbear mtd-utils-ubi btop unudhcpd --no-cache
 rc-update add dropbear default
 
 # Clear apk cache

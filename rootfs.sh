@@ -51,6 +51,8 @@ overlay() {
   rsync -a "$OVERLAY_WORKSPACE/" "$ROOTFS_WORKSPACE_MNT/"
   rm -rf "$OVERLAY_WORKSPACE"
 
+  mkdir -p "$ROOTFS_WORKSPACE_MNT/etc/runlevels/default/"
+
   ln -s "/etc/init.d/link_mount" \
     "$ROOTFS_WORKSPACE_MNT/etc/runlevels/default/link_mount"
 
