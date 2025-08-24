@@ -13,8 +13,7 @@ rc-update add local default
 apk add agetty
 
 # Setting up shell
-apk add shadow bash bash-completion --no-cache
-chsh -s /bin/bash
+apk add shadow --no-cache
 echo -e "luckfox\nluckfox" | passwd
 apk del -r shadow
 
