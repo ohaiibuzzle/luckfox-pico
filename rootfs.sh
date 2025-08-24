@@ -58,6 +58,9 @@ overlay() {
 
   ln -s "/etc/init.d/usb_gadget" \
     "$ROOTFS_WORKSPACE_MNT/etc/runlevels/default/usb_gadget"
+
+  ln -s "/etc/init.d/copyparty" \
+    "$ROOTFS_WORKSPACE_MNT/etc/runlevels/default/copyparty"
 }
 
 overlay

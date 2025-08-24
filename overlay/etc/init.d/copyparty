@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+
+start() {
+    ebegin "Starting copyparty"
+    mkdir -p /var/run/copyparty
+    start-stop-daemon -S -b -d /var/run/copyparty -m -p /run/copyparty.pid -- /usr/bin/copyparty -c /etc/copyparty.conf
+    eend $?
+}
+
+stop() {
+    ebegin "Stopping copyparty"
+    start-stop-daemon -K -p /run/copyparty.pid
+    eend $?
+}
