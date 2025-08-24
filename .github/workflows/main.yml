@@ -55,7 +55,7 @@ jobs:
           name: ${{ matrix.device }}-sysupgrade
           path: output/${{ matrix.device }}-sysupgrade.img
       - name: upload sdk images
-        uses: actions/upload-artifacts@v4
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.device }}-outputs
           path: sdk/output
